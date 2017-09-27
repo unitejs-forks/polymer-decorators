@@ -1,6 +1,6 @@
 {
   "name": "polymer-decorators",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "TypeScript decorators for Polymer 2.0",
   "main": "lib/decorators.js",
   "types": "lib/decorators.d.ts",
@@ -9,6 +9,7 @@
     "format": "find src -name '*.ts' | xargs clang-format --style=file -i",
     "build": "npm run clean && tsc && rollup -c && node scripts/gen-global-typings.js",
     "prepack": "npm run build",
+    "prepublishOnly": "scripts/make-release-commit.sh",
     "test:setup": "npm pack && mv polymer-decorators-*.tgz polymer-decorators.tgz && cd test/integration && npm install --no-package-lock && npm run build",
     "test": "cd test/integration && npm test"
   },
